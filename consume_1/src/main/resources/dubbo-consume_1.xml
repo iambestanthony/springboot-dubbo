@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="consumer_1" owner="jay"/>
+
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry address="zookeeper://localhost:2181" timeout="100000"/>
+    <!-- 局域网广播注册中心 -->
+    <!--<dubbo:registry address="multicast://239.5.6.7:1234" timeout="10000"/>-->
+    <dubbo:protocol name="dubbo"/>
+    <!-- 用户服务接口 -->
+    <!-- retries表示失败后的重试次数，timeout表示超时时间，actives表示客户端并发限制数 服务端并发控制可用executes参数 -->
+    <dubbo:reference interface="com.kayak.dubbo_common.service.IUserService" id="userService"/>
+    <!--<dubbo:annotation package="com.kayak" />-->
+    <dubbo:annotation package="com.kayak.consume_1" />
+</beans>
