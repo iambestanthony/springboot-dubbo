@@ -23,6 +23,7 @@ import java.time.ZoneOffset;
 @SpringBootApplication
 @ImportResource("classpath:dubbo-consume_1.xml")
 public class Consume1Application {
+    //这里使用autowired和resource  不能使用reference 原因待查*-*
     @Autowired
     public IUserService userService;
 
