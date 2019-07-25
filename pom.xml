@@ -18,6 +18,7 @@
         <module>dubbo-common</module>
         <module>dubbo-provider</module>
         <module>dubbo-consume</module>
+        <module>consume_1</module>
     </modules>
     <!--改造成springboot-->
     <dependencies>
