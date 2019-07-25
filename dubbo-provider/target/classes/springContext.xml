@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!--service 注入-->
+    <bean id="userService" class="com.kayak.dubbo_provider.UserServiceImpl"/>
+    <bean id="productService" class="com.kayak.dubbo_provider.ProductServiceImpl"/>
+    <!-- 设置提供者本次发布的应用名称-->
+    <dubbo:application name="user_provider_app" owner="kayak" organization="kayakwise.xyz"/>
+    <!-- 配置注册中心地址-->
+    <dubbo:registry address="zookeeper://localhost:2181"/>
+    <!-- 局域网广播注册中心 -->
+    <!--<dubbo:registry address="multicast://239.5.6.7:1234" timeout="10000"/>-->
+    <!-- 配置一个协议(dubbo协议) -->
+    <dubbo:protocol name="dubbo" contextpath="dubbo" port="20880" />
+    <!--<dubbo:protocol name="dubbo" port="20880" ></dubbo:protocol>-->
+    <!--rest 协议 -->
+    <!--<dubbo:protocol name="rest" port="20888"/>-->
+    <!-- dubbo方式发布服务 -->
+    <dubbo:service protocol="dubbo" interface="com.kayak.dubbo_common.service.IUserService" ref="userService" />
+    <!-- rest 协议发布风格 -->
+    <!--<dubbo:service protocol="rest" interface="com.kayak.dubbo_common.service.IProductService" ref="productService"/>-->
+    <dubbo:service protocol="dubbo" interface="com.kayak.dubbo_common.service.IProductService" ref="productService"/>
+    <!--<dubbo:annotation package="com.kayak.dubbo_common.service" />-->
+</beans>
