@@ -9,11 +9,15 @@ import java.io.Serializable;
  **/
 public class User implements Serializable {
     @JsonProperty
+    private Integer id;
+    @JsonProperty
     private String userName;
     @JsonProperty
     private String password;
     @JsonProperty
     private String userNum;
+    @JsonProperty
+    private String realName;
 
     public User() {
     }
@@ -28,9 +32,11 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-                "userName='" + userName + '\'' +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", userNum='" + userNum + '\'' +
+                ", realName='" + realName + '\'' +
                 '}';
     }
 
@@ -56,5 +62,21 @@ public class User implements Serializable {
 
     public void setUserNum(String userNum) {
         this.userNum = userNum;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 }

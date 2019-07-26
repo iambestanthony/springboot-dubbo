@@ -6,6 +6,6 @@ import com.kayak.dubbo_common.pojo.User;
  * Created by JayJ on 2019/7/23.
  **/
 public interface IUserService {
-    User getUser();
+    User getUser(Integer id);
     String getUserNum();
 }

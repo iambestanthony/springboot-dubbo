@@ -34,10 +34,10 @@ public class Consume1Application {
 	}
 	@RequestMapping("/getInfo")
     @ResponseBody
-	public User testInfoGet(){
+	public User testInfoGet(Integer id){
         /*ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:dubbo-consume_1.xml");*/
         long timeStart = System.currentTimeMillis();
-        User user = userService.getUser();
+        User user = userService.getUser(id);
         System.out.println(user);
         long timeEnd = System.currentTimeMillis();
         System.out.println("执行时间：" + (timeEnd - timeStart) + "ms");

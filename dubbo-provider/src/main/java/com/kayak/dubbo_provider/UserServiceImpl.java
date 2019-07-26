@@ -3,6 +3,8 @@ package com.kayak.dubbo_provider;
 import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
 import com.kayak.dubbo_common.pojo.User;
 import com.kayak.dubbo_common.service.IUserService;
+import com.kayak.dubbo_provider.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.GET;
@@ -17,9 +19,12 @@ import java.util.UUID;
 @Produces(ContentType.APPLICATION_JSON_UTF_8)
 @Service
 public class UserServiceImpl implements IUserService {
+    @Autowired
+    private UserMapper userMapper;
+
     @Override
-    public User getUser() {
-        return new User("admin","admin","N201907240929");
+    public User getUser(Integer id) {
+        return userMapper.getUser(id);
     }
     @GET
     @Path("/getUserNum")
