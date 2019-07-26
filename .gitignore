@@ -1,2 +1,6 @@
-/*.idea
+/.idea
 /*.iml
+/consume_1/*.iml
+/dubbo-provider/*.iml
+/consume_1/consume_1.iml
+/dubbo-common/dubbo-common.iml
