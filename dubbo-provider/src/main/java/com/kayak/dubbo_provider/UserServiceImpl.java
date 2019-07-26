@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -31,6 +32,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public String getUserNum() {
         return UUID.randomUUID().toString();
+    }
+
+    @Override
+    public List<User> listUser() {
+        return userMapper.listUser();
     }
 
 }

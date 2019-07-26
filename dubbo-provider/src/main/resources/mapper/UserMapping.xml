@@ -12,5 +12,9 @@
     <select id="getUser" resultType="com.kayak.dubbo_common.pojo.User">
         select id,username,password from mmall_user where id = #{id}
     </select>
+    <select id="listUser"  resultMap="BaseResultMap">
+        SELECT id,username,password from mmall_user
+    </select>
+
 
 </mapper>

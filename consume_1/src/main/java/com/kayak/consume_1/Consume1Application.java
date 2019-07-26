@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.List;
 
 @Controller
 @RequestMapping("/consume")
@@ -42,6 +43,11 @@ public class Consume1Application {
         long timeEnd = System.currentTimeMillis();
         System.out.println("执行时间：" + (timeEnd - timeStart) + "ms");
         return user;
+    }
+    @RequestMapping("/listUser")
+    @ResponseBody
+    public List<User> listUser(){
+        return userService.listUser();
     }
 
     @RequestMapping("/list")
