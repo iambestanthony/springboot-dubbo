@@ -25,7 +25,7 @@ public class consumeTest
     @Test
     public void testSay()
     {
-        User user = userService.getUser();
+        User user = userService.getUser(1);
         System.out.println(user);
     }
 

@@ -5,6 +5,7 @@ import com.kayak.dubbo_common.pojo.User;
 import com.kayak.dubbo_common.service.IUserService;
 import com.kayak.dubbo_provider.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.GET;
@@ -22,6 +23,14 @@ import java.util.UUID;
 public class UserServiceImpl implements IUserService {
     @Autowired
     private UserMapper userMapper;
+    @Value("${url}")
+    private String url;
+    @Value("${username}")
+    private String username;
+    @Value("${password}")
+    private String password;
+    @Value("${driverClassName}")
+    private String driverClassName;
 
     @Override
     public User getUser(Integer id) {
@@ -36,6 +45,8 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public List<User> listUser() {
+        //测试apollo配置中心
+        System.out.println("获取apollo配置：user【" + url + "】. username【" + username + "】. password【" + password + "】. driverClassName【" + driverClassName + "】");
         return userMapper.listUser();
     }
 
