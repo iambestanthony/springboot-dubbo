@@ -1,6 +1,8 @@
 package com.kayak.dubbo_provider;
 
 import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
+import com.ctrip.framework.apollo.Config;
+import com.ctrip.framework.apollo.spring.annotation.ApolloConfig;
 import com.kayak.dubbo_common.pojo.User;
 import com.kayak.dubbo_common.service.IUserService;
 import com.kayak.dubbo_provider.mapper.UserMapper;
@@ -17,8 +19,8 @@ import java.util.UUID;
 /**
  * Created by JayJ on 2019/7/23.
  **/
-@Path("/user")
-@Produces(ContentType.APPLICATION_JSON_UTF_8)
+// @Path("/user")
+// @Produces(ContentType.APPLICATION_JSON_UTF_8)
 @Service
 public class UserServiceImpl implements IUserService {
     @Autowired
@@ -31,13 +33,15 @@ public class UserServiceImpl implements IUserService {
     private String password;
     @Value("${driverClassName}")
     private String driverClassName;
+    @ApolloConfig
+    private Config config;
 
     @Override
     public User getUser(Integer id) {
         return userMapper.getUser(id);
     }
-    @GET
-    @Path("/getUserNum")
+    //@GET
+    //@Path("/getUserNum")
     @Override
     public String getUserNum() {
         return UUID.randomUUID().toString();
@@ -46,6 +50,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<User> listUser() {
         //测试apollo配置中心
+        System.out.println("config:"+config.getPropertyNames());
         System.out.println("获取apollo配置：user【" + url + "】. username【" + username + "】. password【" + password + "】. driverClassName【" + driverClassName + "】");
         return userMapper.listUser();
     }

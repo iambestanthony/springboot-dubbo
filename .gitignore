@@ -4,3 +4,7 @@
 /dubbo-provider/*.iml
 /consume_1/consume_1.iml
 /dubbo-common/dubbo-common.iml
+/dubbo-provider/target
+/*/target
+/dubbo-common/target
+/consume_1/target

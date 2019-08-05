@@ -18,10 +18,11 @@ import javax.ws.rs.Produces;
 /**
  * Created by JayJ on 2019/7/26.
  **/
-@EnableApolloConfig
+
 @ImportResource("classpath:springContext.xml")
 @MapperScan("com.kayak.dubbo_provider.mapper")
 @SpringBootApplication
+@EnableApolloConfig
 public class DubboProviderApplication {
 
     public static void main(String[] args){

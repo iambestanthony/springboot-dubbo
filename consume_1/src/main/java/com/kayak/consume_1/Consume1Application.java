@@ -41,7 +41,7 @@ public class Consume1Application {
         User user = userService.getUser(id);
         System.out.println(user);
         long timeEnd = System.currentTimeMillis();
-        System.out.println("执行时间：" + (timeEnd - timeStart) + "ms");
+        //System.out.println("执行时间：" + (timeEnd - timeStart) + "ms");
         return user;
     }
     @RequestMapping("/listUser")

@@ -1,6 +1,6 @@
 package com.kayak.dubbo_common.pojo;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+//import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.io.Serializable;
 
@@ -8,15 +8,15 @@ import java.io.Serializable;
  * Created by JayJ on 2019/7/23.
  **/
 public class User implements Serializable {
-    @JsonProperty
+    //@JsonProperty
     private Integer id;
-    @JsonProperty
+    //@JsonProperty
     private String userName;
-    @JsonProperty
+    //@JsonProperty
     private String password;
-    @JsonProperty
+    //@JsonProperty
     private String userNum;
-    @JsonProperty
+    //@JsonProperty
     private String realName;
 
     public User() {
