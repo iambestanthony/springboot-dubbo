@@ -1,7 +1,9 @@
 package com.kayak.dubboconsume.controller;
 
+import com.alibaba.dubbo.common.utils.Log;
 import com.kayak.dubbo_common.pojo.Product;
 import com.kayak.dubbo_common.service.IProductService;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +22,7 @@ public class ProductController {
     @RequestMapping("/list")
     @ResponseBody
     public List<Product> list(){
+        
         return productService.getProdList();
     }
 }
