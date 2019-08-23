@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kayak.dubbo_provider.mapper.BillMapper">
+
+    <resultMap id="BaseResultMap" type="com.kayak.dubbo_common.pojo.Bill">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="bill_name" jdbcType="VARCHAR" property="billName" />
+        <result column="trans_serno" jdbcType="VARCHAR" property="transSerno" />
+        <result column="trans_date" jdbcType="VARCHAR" property="transDate" />
+        <result column="trans_time" jdbcType="VARCHAR" property="transTime" />
+        <result column="pay_type" jdbcType="VARCHAR" property="payType" />
+        <result column="pay_amt" jdbcType="decimal" property="payAmt" />
+    </resultMap>
+
+    <select id="listBill"  resultMap="BaseResultMap" parameterType="int">
+        SELECT id,user_id,bill_name,trans_serno,trans_date,trans_time,pay_type,pay_amt from mmall_bill
+        <if test="user_id!=null">
+            WHERE user_id = #{userId} order by trans_date
+        </if>
+    </select>
+
+
+</mapper>w

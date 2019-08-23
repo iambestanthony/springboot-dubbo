@@ -1,5 +1,6 @@
 package com.kayak.consume_1.utils;
 
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Random;
@@ -9,7 +10,7 @@ import java.util.Random;
  **/
 public class TestSign {
     public static void main(String[] args){
-        String str = "admin";
+        /*String str = "admin";
         String encoder = new String(Base64.getEncoder().encode(str.getBytes()));
         System.out.println(encoder);
         String decoder = new String(Base64.getDecoder().decode(encoder.getBytes()));
@@ -20,8 +21,6 @@ public class TestSign {
         int i = 0;
         String va = "";
         while (i<8){
-
-
             int temp = 65;
 
             va += (char) (random.nextInt(26)+temp);
@@ -29,7 +28,13 @@ public class TestSign {
             //String value = (char)(random.nextInt(26)+65);
             System.out.println();
             i++;
-        }
+        }*/
+        String[] strings = new String[10];
+        for (int i = 0; i < 11; i++) {
+            strings[i] = "data_"+(i+1);
+            System.out.println(strings[i]);
+        }        
+
 
     }
 }
