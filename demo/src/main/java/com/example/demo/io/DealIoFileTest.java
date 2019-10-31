@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by JayJ on 2019/10/30.
  **/
-public class DealIOFile {
+public class DealIoFileTest {
     String path = "D:\\temp\\iofile\\" + getDate() + ".ok";
 
     private String getDate() {
@@ -19,7 +19,7 @@ public class DealIOFile {
     }
 
     @Test
-    public void test() {
+    public void dealIoFileTest() {
         File file = createFile();
         ArrayList<String> list = new ArrayList<>();
         list.add("201811080000000094003153X10004 2018110814595920181107000000650945      0000000000000000000000000500000002298001000100210000                       156945");
