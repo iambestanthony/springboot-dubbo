@@ -2,7 +2,7 @@
 spring:
   # 数据库相关配置
   datasource:
-  # url: jdbc:mysql://39.108.110.248:3306/mmall?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useTimezone=true&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+  # url: jdbc:mysql://localhost:3306/mmall?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useTimezone=true&serverTimezone=Asia/Shanghai&allowMultiQueries=true
     url: ${url:jdbc:mysql://localhost:3306/mmall?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useTimezone=true&serverTimezone=Asia/Shanghai&allowMultiQueries=true}
     username: ${username:root}
     password: ${password}
@@ -37,6 +37,6 @@ apollo:
     eagerLoad:
       enabled: true
     namespaces: application #,FX.apollo,application.yml
-  meta: http://39.108.110.248:8080
+  meta: http://localhost:8080
     # apollo.bootstrap.eagerLoad.enabled=true
     # apollo.bootstrap.namespaces = application,FX.apollo,application.yml  注入非默认application namespace或多个namespace的配置示例
